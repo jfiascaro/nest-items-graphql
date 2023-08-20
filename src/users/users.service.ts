@@ -32,7 +32,11 @@ export class UsersService {
   }
 
   async findAll(): Promise<User[]> {
-    return [];
+    try {
+      return await this.usersRepository.find();
+    } catch (error) {}
+
+    //return [];
   }
 
   async findOneByEmail(email: string): Promise<User> {
